@@ -15,7 +15,7 @@ describe 'Usuário se autentica' do
     end
 
     # Assert
-    expect(page).to have_content 'Usuário autenticado com sucesso.'
+    expect(page).to have_content 'Login efetuado com sucesso.'
     within('nav') do
     expect(page).not_to have_link 'Entrar'
     expect(page).to have_link 'Sair'

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application" %>
   </head>
   <body>
     <header>
       <h1> Sistema de Transporte </h1>
+      <p> <%= I18n.translate("hello") %> | <%= I18n.localize(Date.today) %> </p>
       <nav>
       <% if user_signed_in? %>
         <%= link_to 'Sair', root_path %>
