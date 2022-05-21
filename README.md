@@ -36,7 +36,7 @@ Cada transportadora deve fazer sua configuração de preços de acordo com as di
 |0,001 a 0,500	 |0 a 10kg         |R$ 0,50        
 |0,001 a 0,500	 |10 a 30 kg       |R$ 0,80            
 |0,001 a 0,500	 |Acima de 30kg    |R$ 1,00
-|0,501 a 1,000	 |0 a 10kg		   |R$ 0,75
+|0,501 a 1,000	 |0 a 10kg         |R$ 0,75
 
 E assim em diante.
 

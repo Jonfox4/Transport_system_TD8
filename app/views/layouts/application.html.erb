@@ -8,8 +8,23 @@
 
     <%= stylesheet_link_tag "application" %>
   </head>
-
   <body>
+    <header>
+      <h1> Sistema de Transporte </h1>
+      <nav>
+      <% if user_signed_in? %>
+        <%= link_to 'Sair', root_path %>
+        <%= current_user.email %>
+      <% else %>
+        <%= link_to 'Entrar', new_user_session_path %>
+      <% end %>
+      </nav>
+    </header>
+    <main>
+      <div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      </div>        
     <%= yield %>
   </body>
 </html>
