@@ -1,0 +1,9 @@
+<h3> Transportadoras: </h3>
+
+<ul>
+  <% @shipping_companies.each do |s|  %>
+    <li>
+      <%= s.brand_name %>
+    </li>
+  <% end %>
+</ul>
