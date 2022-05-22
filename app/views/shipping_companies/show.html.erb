@@ -1,0 +1,14 @@
+<h1> <%= @shipping_company.brand_name %> </h1>
+
+<b> Razão Social: </b> <%= @shipping_company.corporate_name %>
+<br>
+<b> Email Coorporativo: </b> <%= @shipping_company.email_domain %>
+<br>
+<b> CNPJ </b> <%= @shipping_company.registration_number %>
+<br>
+<b> Endereço </b> <%= @shipping_company.address %>
+<b> Cidade </b> <%= @shipping_company.city %>
+<b> Estado </b>   <%= @shipping_company.state %>
+<br>
+<br>
+<%= link_to 'Voltar', shipping_companies_path %>

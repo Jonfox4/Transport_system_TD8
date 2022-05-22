@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
-  resources :shipping_companies, only: [:index]
+  resources :shipping_companies, only: [:index, :show]
 end

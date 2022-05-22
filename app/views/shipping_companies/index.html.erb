@@ -3,7 +3,7 @@
 <ul>
   <% @shipping_companies.each do |s|  %>
     <li>
-      <%= s.brand_name %>
+      <%= link_to s.brand_name, s %>
     </li>
   <% end %>
 </ul>
