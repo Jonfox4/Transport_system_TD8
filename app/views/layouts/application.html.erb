@@ -10,13 +10,19 @@
   <body>
     <header>
       <h1> Sistema de Transporte </h1>
-      <p> <%= I18n.translate("hello") %> | <%= I18n.localize(Date.today) %> </p>
       <nav>
       <% if user_signed_in? %>
-        <%= link_to 'Sair', root_path %>
-        <%= current_user.email %>
+      <p> 
+        <%= I18n.translate("hello") %> 
+        <b><%= current_user.email %></b> |     
+        <%= button_to 'Sair', destroy_user_session_path, method: :delete %> |
+        <%= I18n.localize(Date.today) %> | 
+      </p>  
       <% else %>
-        <%= link_to 'Entrar', new_user_session_path %>
+      <p> 
+        <%= I18n.translate("hello") %> | 
+        <%= link_to 'Entrar', new_user_session_path %> |
+        <%= I18n.localize(Date.today) %> </p>
       <% end %>
       </nav>
     </header>
