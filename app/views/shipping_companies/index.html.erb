@@ -1,5 +1,6 @@
-<h3> Transportadoras: </h3>
+<%= link_to 'Nova Transportadora', new_shipping_company_path %>
 
+<h3> Transportadoras: </h3>
 <ul>
   <% @shipping_companies.each do |s|  %>
     <li>
@@ -7,3 +8,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= link_to 'Voltar', root_path %>

@@ -1,0 +1,47 @@
+<h3> Cadastrar Nova Transportadora: </h3>
+
+<% if(@shipping_company.errors.any?) %>
+  <p> Verifique os erros abaixo </p>
+  <ul>
+    <% @shipping_company.errors.full_messages.each do |msg| %>
+    <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_with(model: @shipping_company) do |f| %>
+  <div>
+  <%= f.label :corporate_name, 'Razão Social' %>
+  <%= f.text_field :corporate_name %>
+  </div>
+  <div>
+  <%= f.label :brand_name, 'Nome Fantasia' %>
+  <%= f.text_field :brand_name %>
+  </div>
+  <div>
+  <%= f.label :email_domain, 'Domínio de E-mail' %>
+  <%= f.email_field :email_domain %>
+  </div>
+  <div>
+  <%= f.label :registration_number, 'CNPJ' %>
+  <%= f.number_field :registration_number %>
+  </div>
+  <div>
+  <%= f.label :address, 'Endereço'%>
+  <%= f.text_field :address %>
+  </div>
+  <div>
+  <%= f.label :city, 'Cidade' %>
+  <%= f.text_field :city %>
+  </div>
+   <div>
+  <%= f.label :state, 'Estado' %>
+  <%= f.text_field :state %>
+  </div>
+  <div>
+  <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', shipping_companies_path %>

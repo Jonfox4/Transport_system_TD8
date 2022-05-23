@@ -13,9 +13,9 @@ describe 'Usuário vê as empresas de transporte' do
 
   it 'vê uma lista de transportadoras' do
     #Arrange
-    ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 1234567891011,
+    ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
                             address: 'Avenida numero one', city: 'Cidade 1', state:'1')
-    ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 1244567891011,
+    ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                             address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
     visit shipping_companies_path
@@ -26,9 +26,9 @@ describe 'Usuário vê as empresas de transporte' do
  
    it 'e vê detalhes de uma transportadora' do
     #Arrange
-    ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 1234567891011,
+    ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
                             address: 'Avenida numero one', city: 'Cidade 1', state:'1')
-    ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 1244567891011,
+    ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                             address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
     visit shipping_companies_path
@@ -45,10 +45,10 @@ describe 'Usuário vê as empresas de transporte' do
 
    it 'volta para tela anterior' do
     #Arrange
-    s = ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 1234567891011,
-                            address: 'Avenida numero one', city: 'Cidade 1', state:'1')
-    s2 = ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 1244567891011,
-                            address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
+    s = ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
+                                address: 'Avenida numero one', city: 'Cidade 1', state:'1')
+    s2 = ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
+                                address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
     visit ("shipping_companies/#{s.id}")
     click_on 'Voltar'
