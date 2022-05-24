@@ -1,1 +1,13 @@
+<br>
+<% if current_user == nil %>
+<p> Efetue o <b>Login</b>, ou <b>Crie uma conta</b> para continuar </p>
+
+<% elsif current_user.company? %>
+<p> Boas vindas <b><%= current_user.email%></b></p>
+
+<% elsif current_user.admin? %>
+Você está logado como Administrador, boas vindas <%= current_user.email %>
+<br>
+<br>
 <%= link_to 'Transportadoras', shipping_companies_path  %>
+<% end %>

@@ -1,12 +1,25 @@
-<%= link_to 'Nova Transportadora', new_shipping_company_path %>
-
 <h3> Transportadoras: </h3>
-<ul>
-  <% @shipping_companies.each do |s|  %>
-    <li>
-      <%= link_to s.brand_name, s %>
-    </li>
-  <% end %>
-</ul>
 
-<%= link_to 'Voltar', root_path %>
+<% if current_user.admin? %>
+<%= link_to 'Nova Transportadora', new_shipping_company_path %>
+  <% if @shipping_companies.any? %>
+  <ul>
+    <% @shipping_companies.each do |s|  %>
+      <li>
+        <%= link_to s.brand_name, s %>
+      </li>
+  </ul>
+  <% end %>
+<br>
+<% else %>
+<br>
+<br>
+  Não existem Transportadoras cadastradas.
+<% end %>
+<br>
+<br>
+<% else %>
+    <p> Apenas Administradores pode visualizar todas as transportadoras </p>
+<% end %>
+
+  <%= link_to 'Voltar', root_path %>

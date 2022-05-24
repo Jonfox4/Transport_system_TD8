@@ -1,4 +1,5 @@
 class ShippingCompaniesController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
 
   def index
     @shipping_companies = ShippingCompany.all

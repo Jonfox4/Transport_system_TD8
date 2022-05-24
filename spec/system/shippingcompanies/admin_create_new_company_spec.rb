@@ -5,8 +5,9 @@ require 'rails_helper'
 describe 'Admin cadastra uma transportadora' do
   it 'a partir da tela de transportadoras' do
     #Arrange
-
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     #Act
+    login_as u
     visit shipping_companies_path
     click_on 'Nova Transportadora'
     #Assert
@@ -21,8 +22,9 @@ describe 'Admin cadastra uma transportadora' do
 
   it 'com sucesso' do
     #Arrange
-
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     #Act
+    login_as u
     visit shipping_companies_path
     click_on 'Nova Transportadora'
     fill_in 'Nome Fantasia', with: 'Transportadora Rapi10'
@@ -40,8 +42,9 @@ describe 'Admin cadastra uma transportadora' do
 
   it 'com dados incompletos' do
     #Arrange
-
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     #Act
+    login_as u
     visit shipping_companies_path
     click_on 'Nova Transportadora'
     fill_in 'Nome Fantasia', with: ''
@@ -59,8 +62,9 @@ describe 'Admin cadastra uma transportadora' do
 
    it 'com CNPJ de 10 digitos' do
      #Arrange
-  
+     u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )  
      #Act
+     login_as u
      visit shipping_companies_path
      click_on 'Nova Transportadora'
      fill_in 'Nome Fantasia', with: 'Transportadora Rapi10'
@@ -77,9 +81,11 @@ describe 'Admin cadastra uma transportadora' do
 
    it 'com alguns dados já existentes' do
       #Arrange
+      u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
       s2 = ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                                    address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
       #Act
+      login_as u
       visit shipping_companies_path
       click_on 'Nova Transportadora'
       fill_in 'Nome Fantasia', with: 'Two'

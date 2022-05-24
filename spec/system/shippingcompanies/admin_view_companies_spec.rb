@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'Usuário vê as empresas de transporte' do
   it 'após o login' do
     #Arrange
-
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     #Act
+    login_as u
     visit shipping_companies_path
 
     #Assert
@@ -13,11 +14,14 @@ describe 'Usuário vê as empresas de transporte' do
 
   it 'vê uma lista de transportadoras' do
     #Arrange
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
+
     ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
                             address: 'Avenida numero one', city: 'Cidade 1', state:'1')
     ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                             address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
+    login_as u
     visit shipping_companies_path
     #Assert
     expect(page).to have_content 'One'
@@ -26,11 +30,13 @@ describe 'Usuário vê as empresas de transporte' do
  
    it 'e vê detalhes de uma transportadora' do
     #Arrange
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
                             address: 'Avenida numero one', city: 'Cidade 1', state:'1')
     ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                             address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
+    login_as u
     visit shipping_companies_path
     click_on 'One'
     #Assert
@@ -45,11 +51,13 @@ describe 'Usuário vê as empresas de transporte' do
 
    it 'volta para tela anterior' do
     #Arrange
+    u = User.create!(email:'admin@admin.com',password: '123456', role:'admin' )
     s = ShippingCompany.create!(brand_name:'One',corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11111111111111,
                                 address: 'Avenida numero one', city: 'Cidade 1', state:'1')
     s2 = ShippingCompany.create!(brand_name:'Two',corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22222222222222,
                                 address: 'Avenida numero Two', city: 'Cidade 2', state:'2')
     #Act
+    login_as u
     visit ("shipping_companies/#{s.id}")
     click_on 'Voltar'
     #Assert
