@@ -7,6 +7,7 @@ class ShippingCompaniesController < ApplicationController
 
   def show
     @shipping_company = ShippingCompany.find(params[:id])
+    @vehicles = Vehicle.all
   end
 
   def new
@@ -28,7 +29,6 @@ class ShippingCompaniesController < ApplicationController
 
   def shipping_company_params
       params.require(:shipping_company).permit(:brand_name, :corporate_name, :email_domain, :registration_number,
-                                            :address, :city, :state)
+                                              :address, :city, :state)
   end
-
 end

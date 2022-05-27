@@ -11,4 +11,16 @@
 <b> Estado </b>   <%= @shipping_company.state %>
 <br>
 <br>
+<h1> Veículos da Empresa </h1>
+<% @vehicles.each do |vehicle| %>
+     <b>Placa:</b><a> <a><%= vehicle.plate %>
+     <b>Marca:</b><a>  <a><%= vehicle.brand %>
+     <b>Modelo:</b><a>  <a><%= vehicle.vehicle_model %>
+     <b>Ano de Fabricação:</b><a>  <a><%= vehicle.fabrication_year %><br>
+<% end %>
+<br>
+<br>
+<%= link_to 'Cadastrar novo veículo', new_shipping_company_vehicle_path(@shipping_company.id) %>
+<br>
+<br>
 <%= link_to 'Voltar', shipping_companies_path %>

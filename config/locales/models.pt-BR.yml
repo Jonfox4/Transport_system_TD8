@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       shipping_company: 'Transportadora'
+      vehicle: 'Veículo'
     attributes:
       shipping_company:
         corporate_name: 'Razão Social'
@@ -11,3 +12,8 @@ pt-BR:
         address: 'Endereço'
         city: 'Cidade'
         state: 'Estado'
+      vehicle:
+        plate: 'Placa'
+        brand: 'Marca'
+        vehicle_model: 'Modelo'
+        fabrication_year: 'Ano de fabricação'

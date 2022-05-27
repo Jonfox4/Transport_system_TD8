@@ -3,4 +3,5 @@ class ShippingCompany < ApplicationRecord
   validates :email_domain, :corporate_name, :brand_name, :registration_number, uniqueness: true
   validates :registration_number, numericality: { only_integer: true }
   validates :registration_number, length: { is: 14 }
+  has_many :vehicles
 end

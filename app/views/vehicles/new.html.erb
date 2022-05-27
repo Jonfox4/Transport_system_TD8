@@ -1,0 +1,36 @@
+<h3> Cadastrar Novo Veículo: </h3>
+
+<% if(@vehicle.errors.any?) %>
+  <p> Verifique os erros abaixo </p>
+  <ul>
+    <% @vehicle.errors.full_messages.each do |msg| %>
+    <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: [@shipping_company, @vehicle]) do |f| %>
+  <div>
+    <%= f.label :plate, 'Placa'%>
+    <%= f.text_field :plate %>
+  </div>
+
+  <div>
+    <%= f.label :brand, 'Marca' %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div>
+    <%= f.label :vehicle_model, 'Modelo' %>
+    <%= f.text_field :vehicle_model %>
+  </div>
+
+  <div>
+    <%= f.label :fabrication_year, 'Ano de fabricação' %>
+    <%= f.text_field :fabrication_year %>
+  </div>
+
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
