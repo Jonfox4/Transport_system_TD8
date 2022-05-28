@@ -12,11 +12,15 @@
 <br>
 <br>
 <h1> Veículos da Empresa </h1>
-<% @vehicles.each do |vehicle| %>
-     <b>Placa:</b><a> <a><%= vehicle.plate %>
-     <b>Marca:</b><a>  <a><%= vehicle.brand %>
-     <b>Modelo:</b><a>  <a><%= vehicle.vehicle_model %>
-     <b>Ano de Fabricação:</b><a>  <a><%= vehicle.fabrication_year %><br>
+<% if @vehicles.any? %>
+  <% @vehicles.each do |vehicle| %>
+    <b>Placa:</b><a> <a><%= vehicle.plate %>
+    <b>Marca:</b><a>  <a><%= vehicle.brand %>
+    <b>Modelo:</b><a>  <a><%= vehicle.vehicle_model %>
+    <b>Ano de Fabricação:</b><a>  <a><%= vehicle.fabrication_year %><br>
+  <% end %>
+<% else %>
+  Não existem veículos cadastrados.
 <% end %>
 <br>
 <br>

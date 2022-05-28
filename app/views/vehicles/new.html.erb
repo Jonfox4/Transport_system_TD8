@@ -29,8 +29,11 @@
     <%= f.label :fabrication_year, 'Ano de fabricação' %>
     <%= f.text_field :fabrication_year %>
   </div>
-
+  <br>
   <div>
     <%= f.submit 'Enviar' %>
   </div>
+  <br>
+  <%= link_to 'Voltar', shipping_companies_path %>
+
 <% end %>

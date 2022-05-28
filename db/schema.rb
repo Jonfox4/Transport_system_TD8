@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_161946) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_28_033801) do
   create_table "shipping_companies", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -32,8 +32,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_161946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
+    t.integer "shipping_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["shipping_company_id"], name: "index_users_on_shipping_company_id"
   end
 
   create_table "vehicles", force: :cascade do |t|
@@ -47,5 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_161946) do
     t.index ["shipping_company_id"], name: "index_vehicles_on_shipping_company_id"
   end
 
+  add_foreign_key "users", "shipping_companies"
   add_foreign_key "vehicles", "shipping_companies"
 end

@@ -3,7 +3,7 @@
 <p> Efetue o <b>Login</b>, ou <b>Crie uma conta</b> para continuar </p>
 
 <% elsif current_user.company? %>
-<p> Boas vindas <b><%= current_user.email%></b></p>
+<%= link_to 'Transportadora', shipping_companies_path  %>
 
 <% elsif current_user.admin? %>
 Você está logado como Administrador, boas vindas <%= current_user.email %>

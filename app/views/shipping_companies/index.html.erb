@@ -1,25 +1,23 @@
 <h3> Transportadoras: </h3>
 
 <% if current_user.admin? %>
-<%= link_to 'Nova Transportadora', new_shipping_company_path %>
+  <%= link_to 'Nova Transportadora', new_shipping_company_path %>
   <% if @shipping_companies.any? %>
-  <ul>
-    <% @shipping_companies.each do |s|  %>
+    <% @shipping_companies.each do |s| %>
+    <ul>
       <li>
         <%= link_to s.brand_name, s %>
       </li>
-  </ul>
+    </ul>
+    <% end %>
   <% end %>
-<br>
+<% elsif current_user.company? %>
+    <%= link_to @shipping_company.brand_name, shipping_company_path(@shipping_company)  %><br><br>
+
 <% else %>
-<br>
-<br>
-  Não existem Transportadoras cadastradas.
+    <p> Não existem empresas cadastradas com seu email de domínio, favor entrar em contato com a Administração. </p>
 <% end %>
-<br>
-<br>
-<% else %>
-    <p> Apenas Administradores pode visualizar todas as transportadoras </p>
-<% end %>
+
+
 
   <%= link_to 'Voltar', root_path %>
