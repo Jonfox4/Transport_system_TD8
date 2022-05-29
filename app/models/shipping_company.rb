@@ -5,4 +5,5 @@ class ShippingCompany < ApplicationRecord
   validates :registration_number, numericality: { only_integer: true }
   validates :registration_number, length: { is: 14 }
   has_many :vehicles
+  has_many :prices
 end

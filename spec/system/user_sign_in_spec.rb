@@ -28,7 +28,7 @@ describe 'Usuário se autentica' do
   it 'e faz logout' do
     # Arrange
     s = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
-      address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+                                address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     User.create!(email: 'email1@one.com', password: 'password', role: 'company', shipping_company: s)
 
     # Act

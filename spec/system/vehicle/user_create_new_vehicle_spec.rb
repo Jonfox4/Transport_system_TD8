@@ -3,15 +3,15 @@ require 'rails_helper'
 describe 'usuário entra na tela de sua empresa' do
   it 'e vê a lista de veículos de sua empresa' do
     # Arrange
-    u = User.create!(email: 'company@company.com', password: '123456', role: 'admin')
-    company = ShippingCompany.create!(brand_name: 'One', corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11_111_111_111_111,
+    company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    user = User.create!(email: 'admin@one.com', password: '123456', role: 'company', shipping_company: company)
     Vehicle.create!(plate: 'ONE0001', brand: 'Ford', vehicle_model: 'Ka', fabrication_year: 2012,
                     shipping_company: company)
     Vehicle.create!(plate: 'ONE0002', brand: 'Wolks', vehicle_model: 'Fox', fabrication_year: 2016,
                     shipping_company: company)
     # Act
-    login_as u
+    login_as user
     visit shipping_companies_path
     click_on company.brand_name
 
@@ -29,11 +29,11 @@ describe 'usuário entra na tela de sua empresa' do
 
   it 'e cadastra um novo veículo' do
     # Arrange
-    u = User.create!(email: 'company@company.com', password: '123456', role: 'admin')
-    company = ShippingCompany.create!(brand_name: 'One', corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11_111_111_111_111,
+    company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    user = User.create!(email: 'admin@one.com', password: '123456', role: 'company', shipping_company: company)
     # Act
-    login_as u
+    login_as user
     visit shipping_companies_path
     click_on company.brand_name
     click_on 'Cadastrar novo veículo'
@@ -50,11 +50,11 @@ describe 'usuário entra na tela de sua empresa' do
 
   it 'e vê que não existem veículos cadastrados' do
     # Arrange
-    u = User.create!(email: 'company@company.com', password: '123456', role: 'admin')
-    company = ShippingCompany.create!(brand_name: 'One', corporate_name: 'Empresa One', email_domain: 'One@email.com', registration_number: 11_111_111_111_111,
+    company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    user = User.create!(email: 'admin@one.com', password: '123456', role: 'company', shipping_company: company)
     # Act
-    login_as u
+    login_as user
     visit shipping_companies_path
     click_on company.brand_name
     # Assert

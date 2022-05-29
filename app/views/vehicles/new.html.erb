@@ -11,22 +11,22 @@
 
 <%= form_with(model: [@shipping_company, @vehicle]) do |f| %>
   <div>
-    <%= f.label :plate, 'Placa'%>
+    <%= f.label :plate %>
     <%= f.text_field :plate %>
   </div>
 
   <div>
-    <%= f.label :brand, 'Marca' %>
+    <%= f.label :brand %>
     <%= f.text_field :brand %>
   </div>
 
   <div>
-    <%= f.label :vehicle_model, 'Modelo' %>
+    <%= f.label :vehicle_model %>
     <%= f.text_field :vehicle_model %>
   </div>
 
   <div>
-    <%= f.label :fabrication_year, 'Ano de fabricação' %>
+    <%= f.label :fabrication_year %>
     <%= f.text_field :fabrication_year %>
   </div>
   <br>
@@ -34,6 +34,6 @@
     <%= f.submit 'Enviar' %>
   </div>
   <br>
-  <%= link_to 'Voltar', shipping_companies_path %>
+  <%= link_to 'Voltar', shipping_company_path(@shipping_company) %>
 
 <% end %>

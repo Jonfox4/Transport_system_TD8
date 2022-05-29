@@ -71,7 +71,7 @@ describe 'Usuário vê as empresas de transporte' do
                                 address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     s2 = ShippingCompany.create!(brand_name: 'Two Transportes', corporate_name: 'Empresa Two', email_domain: 'two.com', registration_number: 22_222_222_222_222,
                                  address: 'Avenida numero Two', city: 'Cidade 2', state: '2')
-    u1 = User.create!(email: 'admin@one.com', password: '123456', role: 'company',shipping_company: s)
+    u1 = User.create!(email: 'admin@one.com', password: '123456', role: 'company', shipping_company: s)
     u2 = User.create!(email: 'admin@two.com', password: '123456', role: 'company', shipping_company: s2)
     # Act
     login_as u1

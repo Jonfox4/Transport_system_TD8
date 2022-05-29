@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 describe 'Admin cadastra uma Transportadora' do
   it 'a partir da tela de transportadoras' do
     # Arrange
@@ -22,7 +20,7 @@ describe 'Admin cadastra uma Transportadora' do
 
   it 'com sucesso' do
     # Arrange
-    company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11111111111111,
+    company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     admin = User.create!(email: 'admin@one.com', password: '123456', role: 'admin')
     # Act
@@ -37,8 +35,6 @@ describe 'Admin cadastra uma Transportadora' do
     fill_in 'Cidade', with: 'São Paulo'
     fill_in 'Estado', with: 'SP'
     click_on 'Enviar'
-    # Assert
-    # expect(current_path).to eq shipping_companies_path(ShippingCompany.last)
     expect(page).to have_content 'Transportadora Rapi10'
   end
 

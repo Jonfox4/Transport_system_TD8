@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Usuário se autentica' do
   it 'com sucesso' do
     # Arrange
-    s = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11111111111111,
-                               address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    s = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
+                                address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     # Act
     visit root_path
     click_on 'Entrar'
@@ -22,8 +22,8 @@ describe 'Usuário se autentica' do
 
   it 'caso usuário não esteja atrelado a uma empresa ativa' do
     # Arrange
-    s = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11111111111111,
-                               address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    s = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
+                                address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     # Act
     visit root_path
     click_on 'Entrar'
@@ -35,5 +35,4 @@ describe 'Usuário se autentica' do
     # Assert
     expect(page).to have_content 'não atrelado a empresas cadastradas no sistema, favor entrar em contato com a Administração.'
   end
-
 end

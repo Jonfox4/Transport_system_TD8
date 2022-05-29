@@ -24,7 +24,8 @@ class User < ApplicationRecord
     if company.any?
       self.shipping_company_id = company[0].id
     else
-      errors.add(:email, 'não atrelado a empresas cadastradas no sistema, favor entrar em contato com a Administração.') 
+      errors.add(:email,
+                 'não atrelado a empresas cadastradas no sistema, favor entrar em contato com a Administração.')
     end
   end
 end

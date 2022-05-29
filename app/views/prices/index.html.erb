@@ -1,0 +1,8 @@
+
+<% @prices.each do |p| %>
+  'Entre <%= p.minimum_weight %> e <%= p.maximum_weight %> Kg e <%= p.minimum_cubic_meter %> a <%= p.maximum_cubic_meter %> m³ 
+   o preço por KM é R$ <%= p.price_km %>'
+<% end %>
+
+
+<br><%= link_to 'Cadastrar novo preço', new_shipping_company_price_path(@shipping_company.id) %>

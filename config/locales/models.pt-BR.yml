@@ -3,6 +3,7 @@ pt-BR:
     models:
       shipping_company: 'Transportadora'
       vehicle: 'Veículo'
+      price: 'Preço'
     attributes:
       shipping_company:
         corporate_name: 'Razão Social'
@@ -17,3 +18,10 @@ pt-BR:
         brand: 'Marca'
         vehicle_model: 'Modelo'
         fabrication_year: 'Ano de fabricação'
+      price:
+        minimum_weight: 'Peso mínimo'
+        maximum_weight: 'Peso máximo'
+        maximum_cubic_meter: 'Minímo m³'
+        minimum_cubic_meter: 'Máximo m³'
+        price_km: 'Valor por Km'
+        

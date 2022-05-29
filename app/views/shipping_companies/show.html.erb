@@ -21,10 +21,15 @@
   <% end %>
 <% else %>
   Não existem veículos cadastrados.
+<% end %><br><br>
+
+<% if current_user.company? %>
+  <%= link_to 'Cadastrar novo veículo', new_shipping_company_vehicle_path(@shipping_company.id) %>
+<% end %><br>
+
+<% if current_user.company? %>
+  <%= link_to 'Configurar Preços', shipping_company_prices_path(@shipping_company.id) %>
 <% end %>
-<br>
-<br>
-<%= link_to 'Cadastrar novo veículo', new_shipping_company_vehicle_path(@shipping_company.id) %>
-<br>
-<br>
-<%= link_to 'Voltar', shipping_companies_path %>
+
+
+<br><%= link_to 'Voltar', shipping_companies_path %>

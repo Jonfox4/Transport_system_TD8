@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :shipping_companies, only: %i[index show new create] do
     resources :vehicles, only: %i[index new create show]
+    resources :prices, only: %i[index new create]
   end
 end

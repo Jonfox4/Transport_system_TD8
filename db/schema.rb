@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_28_033801) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_28_222132) do
+  create_table "prices", force: :cascade do |t|
+    t.decimal "minimum_weight"
+    t.decimal "maximum_weight"
+    t.decimal "maximum_cubic_meter"
+    t.decimal "minimum_cubic_meter"
+    t.decimal "price_km"
+    t.integer "shipping_company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipping_company_id"], name: "index_prices_on_shipping_company_id"
+  end
+
   create_table "shipping_companies", force: :cascade do |t|
     t.string "brand_name"
     t.string "corporate_name"
@@ -49,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_28_033801) do
     t.index ["shipping_company_id"], name: "index_vehicles_on_shipping_company_id"
   end
 
+  add_foreign_key "prices", "shipping_companies"
   add_foreign_key "users", "shipping_companies"
   add_foreign_key "vehicles", "shipping_companies"
 end
