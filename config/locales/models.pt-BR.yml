@@ -21,7 +21,7 @@ pt-BR:
       price:
         minimum_weight: 'Peso mínimo'
         maximum_weight: 'Peso máximo'
-        maximum_cubic_meter: 'Minímo m³'
+        maximum_cubic_meter: 'Mínimo m³'
         minimum_cubic_meter: 'Máximo m³'
         price_km: 'Valor por Km'
         
