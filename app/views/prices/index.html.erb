@@ -7,4 +7,6 @@
 <% if current_user.company?%>
   <br><%= link_to 'Cadastrar novo preço', new_shipping_company_price_path(@shipping_company.id) %>
 <% else %>
+  'Você deve estar logado para ver conteúdo'
+<% end %>
   <br><%= link_to 'Voltar', shipping_company_path(@shipping_company) %>
