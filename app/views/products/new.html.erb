@@ -1,0 +1,62 @@
+<h1> Produtos </h1>
+<% if current_user.admin? %>
+  <% if @product.errors.any? %>
+      <ul>
+          <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      </ul>
+  <% end %>
+
+  <%= form_with model: @product do |p| %>
+  
+    <div>
+    <%= p.label :sku %>
+    <%= p.text_field :sku %>
+    </div>
+  
+    <div>
+    <%= p.label :customer_name %> 
+    <%= p.text_field :customer_name %> 
+    </div>
+
+    <div>    
+    <%= p.label :distance %>
+    <%= p.number_field :distance %>
+    </div>
+
+    <div>
+    <%= p.label :weight %>
+    <%= p.number_field :weight %>
+    </div>    
+
+    <div>
+    <%= p.label :height %>
+    <%= p.number_field :height %>
+    </div>
+
+    <div>
+    <%= p.label :width %>
+    <%= p.number_field :width %>
+    </div>
+
+    <div>
+    <%= p.label :depth %>
+    <%= p.number_field :depth %>
+    </div>
+
+    <div>
+    <%= p.label :customer_address %>
+    <%= p.text_field :customer_address %>
+    </div>
+    
+    <div>
+    <%= p.submit "Enviar" %>
+    </div>
+  <% end %>
+
+<% else current_user.company? %>
+  <p> Apenas Administradores tem acesso a essa página. </p>
+
+<%= link_to 'Voltar', products_path %>
+<% end %>

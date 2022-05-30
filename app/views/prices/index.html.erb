@@ -1,10 +1,10 @@
 
 <% @prices.each do |p| %>
-  'Entre <%= p.minimum_weight %> e <%= p.maximum_weight %> Kg e <%= p.minimum_cubic_meter %> a <%= p.maximum_cubic_meter %> m³ 
-   o preço por KM é R$ <%= p.price_km %>'
+  <b>Entre</b> <%= p.minimum_weight %> <b>e</b> <%= p.maximum_weight %> <b>Kg e</b> <%= p.minimum_cubic_meter %> <b>a</b> <%= p.maximum_cubic_meter %> m³ 
+   <b>o preço por KM é R$</b> <%= p.price_km %>
 <% end %>
 
-
-<br><%= link_to 'Cadastrar novo preço', new_shipping_company_price_path(@shipping_company.id) %>
-
-<br><%= link_to 'Voltar', shipping_company_path(@shipping_company) %>
+<% if current_user.company?%>
+  <br><%= link_to 'Cadastrar novo preço', new_shipping_company_price_path(@shipping_company.id) %>
+<% else %>
+  <br><%= link_to 'Voltar', shipping_company_path(@shipping_company) %>

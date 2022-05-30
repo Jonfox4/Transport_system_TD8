@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-
 describe 'Usuário entra na Index' do
   it 'e vê a lista de preços cadastrada' do
     # Arrange
     company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
-    company2 = ShippingCompany.create!(brand_name: 'Rapi10', corporate_name: 'Rapi10 Transportes', email_domain: 'rapi10.com', registration_number: 22222222222222,
-                                      address: 'Avenida numero one', city: 'Cidade 1', state: '1')
+    company2 = ShippingCompany.create!(brand_name: 'Rapi10', corporate_name: 'Rapi10 Transportes', email_domain: 'rapi10.com', registration_number: 22_222_222_222_222,
+                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
     user = User.create!(email: 'admin@one.com', password: '123456', role: 'company', shipping_company: company)
     Price.create!(minimum_weight: '1', maximum_weight: '10', maximum_cubic_meter: '5', minimum_cubic_meter: '1',
                   price_km: '0.80', shipping_company: company)

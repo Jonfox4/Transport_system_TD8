@@ -1,24 +1,17 @@
 require 'rails_helper'
 
-describe 'Admin cadastra uma Transportadora' do
-  it 'a partir da tela de transportadoras' do
+describe 'Admin entra na tela inicial' do
+  it 'e ve link para transportadoras' do
     # Arrange
-    u = User.create!(email: 'admin@admin.com', password: '123456', role: 'admin')
+    admin = User.create!(email: 'admin@admin.com', password: '123456', role: 'admin')
     # Act
-    login_as u
-    visit shipping_companies_path
-    click_on 'Nova Transportadora'
+    login_as admin
+    visit root_path
     # Assert
-    expect(page).to have_field('Nome Fantasia')
-    expect(page).to have_field('Razão Social')
-    expect(page).to have_field('Domínio de E-mail')
-    expect(page).to have_field('CNPJ')
-    expect(page).to have_field('Endereço')
-    expect(page).to have_field('Cidade')
-    expect(page).to have_field('Estado')
+    expect(page).to have_link 'Transportadoras'
   end
 
-  it 'com sucesso' do
+  it 'e cadastra transportadora com sucesso' do
     # Arrange
     company = ShippingCompany.create!(brand_name: 'One Transportes', corporate_name: 'Empresa One', email_domain: 'one.com', registration_number: 11_111_111_111_111,
                                       address: 'Avenida numero one', city: 'Cidade 1', state: '1')
@@ -38,7 +31,7 @@ describe 'Admin cadastra uma Transportadora' do
     expect(page).to have_content 'Transportadora Rapi10'
   end
 
-  it 'com dados incompletos' do
+  it 'e cadastra transportadora com dados incompletos' do
     # Arrange
     u = User.create!(email: 'admin@admin.com', password: '123456', role: 'admin')
     # Act
@@ -58,7 +51,7 @@ describe 'Admin cadastra uma Transportadora' do
     expect(page).to have_content 'Estado não pode ficar em branco'
   end
 
-  it 'com CNPJ de 10 digitos' do
+  it 'e cadastra transportadora com CNPJ de 10 digitos' do
     # Arrange
     u = User.create!(email: 'admin@admin.com', password: '123456', role: 'admin')
     # Act
@@ -77,7 +70,7 @@ describe 'Admin cadastra uma Transportadora' do
     expect(page).to have_content 'CNPJ não possui o tamanho esperado (14 caracteres)'
   end
 
-  it 'com alguns dados já existentes' do
+  it 'e cadastra transportadora com alguns dados já existentes' do
     # Arrange
     u = User.create!(email: 'admin@admin.com', password: '123456', role: 'admin')
     s2 = ShippingCompany.create!(brand_name: 'Two', corporate_name: 'Empresa Two', email_domain: 'Two@email.com', registration_number: 22_222_222_222_222,

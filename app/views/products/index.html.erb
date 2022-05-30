@@ -1,0 +1,24 @@
+<h1> Produtos </h1>
+<% if current_user.admin? %>
+  <%= link_to 'Cadastrar novo produto', new_product_path  %><br><br>
+    <% if @product.any? %>
+    <% @product.each do |product| %>
+    
+      Nome do Cliente:
+      <%= product.customer_name %>|
+    
+     Endereço de entrega:
+     <%= product.customer_address %>|
+    
+     Código do Produto:  
+     <%= product.sku %>|
+
+     <% end %>
+    <% else %>
+     <p>Não existem produtos em espera</p>
+
+   <% end %>
+<% else current_user.company? %>
+  <p> Apenas Administradores tem acesso a essa página. </p>
+<% end %>
+<br><br><%= link_to 'Voltar', root_path %>
