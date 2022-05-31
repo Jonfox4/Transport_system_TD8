@@ -1,6 +1,18 @@
-<h1> <%= @shipping_company.brand_name %> </h1>
 
-<b> Razão Social: </b> <%= @shipping_company.corporate_name %>
+  <% if current_user.company? %>
+  <%= link_to 'Cadastrar novo veículo', new_shipping_company_vehicle_path(@shipping_company.id) %>
+  <% end %><br>
+
+  <% if current_user.company? %>
+  <%= link_to 'Configurar Preços', shipping_company_prices_path(@shipping_company.id) %>
+  <% end %><br>
+
+  <% if current_user.company? %>
+  <%= link_to 'Cadastrar prazo de entrega', shipping_company_time_deliveries_path(@shipping_company.id)  %>
+  <% end %><br>
+
+<h1> <%= @shipping_company.brand_name %> </h1>
+Razão Social: </b> <%= @shipping_company.corporate_name %>
 <br>
 <b> Email Coorporativo: </b> <%= @shipping_company.email_domain %>
 <br>
@@ -23,13 +35,5 @@
   Não existem veículos cadastrados.
 <% end %><br><br>
 
-<% if current_user.company? %>
-  <%= link_to 'Cadastrar novo veículo', new_shipping_company_vehicle_path(@shipping_company.id) %>
-<% end %><br>
 
-<% if current_user.company? %>
-  <%= link_to 'Configurar Preços', shipping_company_prices_path(@shipping_company.id) %>
-<% end %>
-
-
-<br><%= link_to 'Voltar', shipping_companies_path %>
+<%= link_to 'Voltar', shipping_companies_path %>

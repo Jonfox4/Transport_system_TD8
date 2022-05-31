@@ -9,6 +9,7 @@
   </ul>
 <% end %>
 
+<% if current_user.company?%>
 <%= form_with(model: [@shipping_company, @vehicle]) do |f| %>
   <div>
     <%= f.label :plate %>
@@ -34,6 +35,8 @@
     <%= f.submit 'Enviar' %>
   </div>
   <br>
+  <% end %>
+<% else %>
+  Apenas Transportadoras podem cadastrar veículos!
+<% end %>  
   <%= link_to 'Voltar', shipping_company_path(@shipping_company) %>
-
-<% end %>

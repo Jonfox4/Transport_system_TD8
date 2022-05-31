@@ -1,0 +1,16 @@
+<h1>Prazos de entrega</h1>
+
+<% if current_user.company? %>
+    <%= link_to "Adicionar Prazo", new_shipping_company_time_delivery_path%>
+        <% if @time_deliveries.any? %>
+            <% @time_deliveries.each do |time| %>
+            <p>Para entrega de <%= time.min_distance %> a <%= time.max_distance %>
+            km, o prazo é <%= time.time %> dias.<p>
+            <% end %>
+        <% else %>
+            <p>Não existe lista de prazos de entrega cadastrados.</p>
+        <% end %>
+<% else %>
+Página só pode ser acessada por uma transportadora!
+<% end %>    
+<%= link_to "Voltar", shipping_company_path(@shipping_company) %>

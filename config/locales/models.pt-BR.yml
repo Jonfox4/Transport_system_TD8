@@ -5,6 +5,7 @@ pt-BR:
       vehicle: 'Veículo'
       price: 'Preço'
       product: 'Produtos'
+      time_delivery: 'Prazo de Entrega'
     attributes:
       shipping_company:
         corporate_name: 'Razão Social'
@@ -34,3 +35,7 @@ pt-BR:
         height: 'Altura'
         width: 'Largura'
         depth: 'Profundidade'        
+      time_delivery:
+        min_distance: "Distancia Mínima"
+        max_distance: "Distancia Máxima"
+        time: 'Prazo'
