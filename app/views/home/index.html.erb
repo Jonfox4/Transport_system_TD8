@@ -4,11 +4,11 @@
 
 <% elsif current_user.company? %>
 <%= link_to 'Transportadora', shipping_companies_path  %>
+<br><%= link_to 'Produtos', products_path  %>
 
 <% elsif current_user.admin? %>
 Você está logado como Administrador, boas vindas <%= current_user.email %>
 <br>
 <br>
 <%= link_to 'Transportadoras', shipping_companies_path  %>
-<br><%= link_to 'Produtos', products_path  %>
 <% end %>

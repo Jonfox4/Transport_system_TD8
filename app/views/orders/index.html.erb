@@ -1,11 +1,21 @@
 <h1> Ordens de serviço </h1>
 
+
 <% if current_user.admin? %>
   <%= link_to 'Criar nova ordem de serviço', new_order_path %>
-
-
 <% else %>
-  Apenas adminitradores tem acesso a esta página.
+
+  <% @orders.each do |p| %>
+    <b>Empresa</b> <%= p.shipping_company.brand_name %>
+    <b>Veículo</b> <%= p.vehicle.brand %> 
+    <b>SKU</b> <%= p.product.sku %>
+    <b>Cliente</b> <%= p.customer_name %>
+    <b>Endereço</b> <%= p.customer_address %> <br>    
+  <% end %>
+<br>
+  Apenas adminitradores tem acesso a cadastrar ordens de serviço.
+<br>
+
 <% end %>
 
 <br><%= link_to 'Voltar', products_path %>

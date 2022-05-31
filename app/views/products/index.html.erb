@@ -20,6 +20,6 @@
 
    <% end %>
 <% else current_user.company? %>
-  <p> Apenas Administradores tem acesso a essa página. </p>
-<% end %>
+<%= link_to 'Ordem de serviço', orders_path  %><br><br>
+  <% end %>
 <br><br><%= link_to 'Voltar', root_path %>
