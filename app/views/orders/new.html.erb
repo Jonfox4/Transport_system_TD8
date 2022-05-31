@@ -2,7 +2,17 @@
 
 <% if current_user.admin? %>
   
-  <%= form_with(model: @orders) do |f|%>
+    <% if @order.errors.any? %>
+      <ul>
+          <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      </ul>
+    <% end %>
+
+
+
+  <%= form_with(model: @order) do |f|%>
   <div>
     <%= f.label :shipping_company_id, 'Transportadora' %>  
     <%= f.collection_select :shipping_company_id, @shipping_companies, :id, :corporate_name %>
@@ -29,8 +39,8 @@
   </div>
 
   <div>
-    <%= f.label :estimated_delivery_date, 'Estimativa de entrega' %>
-    <%= f.date_field :estimated_delivery_date %>
+    <%= f.label :delivery_date, 'Estimativa de entrega' %>
+    <%= f.date_field :delivery_date %>
   </div>
   
   <div>

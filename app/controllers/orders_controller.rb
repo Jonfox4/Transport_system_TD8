@@ -17,10 +17,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order_params = params.require(:order).permit(:shipping_company_id, :vehicle_id, :product_model_id, :customer_address, :customer_name, :estimated_delivery_date, :status)
+    order_params = params.require(:order).permit(:shipping_company_id, :vehicle_id, :product_id, :customer_address, :customer_name, :delivery_date, :status)
     @order = Order.new(order_params)
     if @order.save
-      redirect_to order_path, notice: 'Ordem de serviço registrada com sucesso.'
+      redirect_to orders_path, notice: 'Ordem de serviço registrada com sucesso.'
     else
       @shipping_companies = ShippingCompany.all
       @vehicles = Vehicle.all

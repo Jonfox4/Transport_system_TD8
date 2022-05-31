@@ -3,6 +3,7 @@
 <% if current_user.admin? %>
   <%= link_to 'Criar nova ordem de serviço', new_order_path %>
 
+
 <% else %>
   Apenas adminitradores tem acesso a esta página.
 <% end %>
