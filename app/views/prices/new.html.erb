@@ -1,5 +1,6 @@
 <h1> Cadastrar Preço </h1>
 
+<% if current_user.company?%>
 <% if(@price.errors.any?) %>
   <p> Verifique os erros abaixo </p>
   <ul>
@@ -37,5 +38,8 @@
 
 <%= f.submit 'Enviar' %>
 
-<br><%= link_to 'Voltar', shipping_company_path(@shipping_company) %>
 <% end %>
+<% else %>
+Apenas Empresas podem cadastar novos preços.
+<% end %>
+<br><%= link_to 'Voltar', shipping_company_path(@shipping_company) %>

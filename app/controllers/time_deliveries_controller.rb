@@ -1,5 +1,5 @@
 class TimeDeliveriesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new]
+  before_action :authenticate_user!, only: %i[index new]
   before_action :set_shipping_company
 
   def index
@@ -13,10 +13,10 @@ class TimeDeliveriesController < ApplicationController
   def create
     @time_delivery = @shipping_company.time_deliveries.new(time_delivery_params)
     if @time_delivery.save
-      redirect_to new_shipping_company_time_delivery_path(@shipping_company), notice: "Prazo cadastrado com sucesso."
+      redirect_to new_shipping_company_time_delivery_path(@shipping_company), notice: 'Prazo cadastrado com sucesso.'
     else
-      flash.now[:alert] = "Prazo não cadastrado."
-      render "new"
+      flash.now[:alert] = 'Prazo não cadastrado.'
+      render 'new'
     end
   end
 

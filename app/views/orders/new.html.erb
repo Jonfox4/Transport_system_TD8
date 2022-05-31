@@ -1,0 +1,45 @@
+<h1> Criar nova ordem de serviço </h1>
+
+<% if current_user.admin? %>
+  
+  <%= form_with(model: @orders) do |f|%>
+  <div>
+    <%= f.label :shipping_company_id, 'Transportadora' %>  
+    <%= f.collection_select :shipping_company_id, @shipping_companies, :id, :corporate_name %>
+  </div>
+
+  <div>
+    <%= f.label :vehicle_id, 'Veículo' %>
+    <%= f.collection_select :vehicle_id, @vehicles, :id, :vehicle_model %>
+  </div>
+
+  <div>
+    <%= f.label :product_id, 'Cod. Produto' %>
+    <%= f.collection_select :product_id, @product, :id, :sku %>
+  </div>
+
+  <div>
+    <%= f.label :customer_address, 'Endereço do Cliente' %>
+    <%= f.text_area :customer_address %>
+  </div>
+
+  <div>
+    <%= f.label :customer_name, 'Nome do Cliente'%>
+    <%= f.text_field :customer_name %>
+  </div>
+
+  <div>
+    <%= f.label :estimated_delivery_date, 'Estimativa de entrega' %>
+    <%= f.date_field :estimated_delivery_date %>
+  </div>
+  
+  <div>
+    <%= f.submit 'Enviar'%>
+  </div>
+  <% end %>
+
+<% else %>
+  Apenas adminitradores tem acesso a esta página.
+<% end %>
+
+<%= link_to 'Voltar', orders_path %>

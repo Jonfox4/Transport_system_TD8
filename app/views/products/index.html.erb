@@ -1,6 +1,7 @@
 <h1> Produtos </h1>
 <% if current_user.admin? %>
-  <%= link_to 'Cadastrar novo produto', new_product_path  %><br><br>
+  <%= link_to 'Cadastrar novo produto', new_product_path %><br>
+  <%= link_to 'Gerar ordem de serviço', orders_path  %><br><br>
     <% if @product.any? %>
     <% @product.each do |product| %>
     

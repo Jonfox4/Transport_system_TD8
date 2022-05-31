@@ -1,5 +1,6 @@
 <h3> Cadastrar Nova Transportadora: </h3>
 
+<% if current_user.admin? %>
 <% if(@shipping_company.errors.any?) %>
   <p> Verifique os erros abaixo </p>
   <ul>
@@ -43,5 +44,7 @@
     <%= f.submit 'Enviar' %>
   </div>
 <% end %>
-
+<% else %>
+Apenas administradores podem criar novas empresas.
+<% end %>
 <%= link_to 'Voltar', shipping_companies_path %>

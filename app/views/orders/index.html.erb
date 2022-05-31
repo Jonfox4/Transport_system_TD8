@@ -1,0 +1,10 @@
+<h1> Ordens de serviço </h1>
+
+<% if current_user.admin? %>
+  <%= link_to 'Criar nova ordem de serviço', new_order_path %>
+
+<% else %>
+  Apenas adminitradores tem acesso a esta página.
+<% end %>
+
+<br><%= link_to 'Voltar', products_path %>

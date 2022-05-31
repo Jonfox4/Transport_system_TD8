@@ -6,6 +6,7 @@ pt-BR:
       price: 'Preço'
       product: 'Produtos'
       time_delivery: 'Prazo de Entrega'
+      order: 'Ordem de serviço'
     attributes:
       shipping_company:
         corporate_name: 'Razão Social'
@@ -39,3 +40,10 @@ pt-BR:
         min_distance: "Distancia Mínima"
         max_distance: "Distancia Máxima"
         time: 'Prazo'
+      order:
+        shipping_company: 'Transportadora'
+        vehicle: 'Veículos'
+        product: 'Produtos'
+        customer_address: 'Endereço do cliente'
+        customer_name: 'Nome do Cliente'
+        estimated_delivery_date: 'Estimativa de entrega'

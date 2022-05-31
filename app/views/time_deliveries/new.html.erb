@@ -1,5 +1,5 @@
 <h1>Prazos</h1>
-
+<% if current_user.company? %>
 <ul>
   <% if @time_delivery.errors.any? %>
     <% @time_delivery.errors.full_messages.each do |message| %>
@@ -28,8 +28,10 @@
       <div>
           <%= p.submit "Enviar" %>
       </div>
-
+<% end %>
+<% else %>
+Apenas Transportadoras podem criar Prazos de entrega.
+<% end %>      
       <div>
         <%= link_to "Voltar", shipping_company_time_deliveries_path(@shipping_company) %>
       </div>
-<% end %>
